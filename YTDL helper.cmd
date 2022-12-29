@@ -8,8 +8,8 @@
 ::====================================================================================
 @echo off
 title YTDL Helper Script
-if exist youtube-dl.exe goto url
-if not exist youtube-dl.exe goto nodl
+if exist yt-dlp.exe goto url
+if not exist yt-dlp.exe goto nodl
 
 :url
 cls
@@ -30,10 +30,10 @@ echo.
 echo. The Youtube-DL executable could not be found
 echo.
 echo ================================================
-echo Downloading latest release from https://youtube-dl.org/downloads/latest/youtube-dl.exe
+echo Downloading latest release from https://github.com/yt-dlp/yt-dlp/releases/download/latest/yt-dlp.exe
 echo.
 echo Log:
-curl --output youtube-dl.exe -L https://youtube-dl.org/downloads/latest/youtube-dl.exe
+curl --output yt-dlp.exe -L https://github.com/yt-dlp/yt-dlp/releases/download/latest/yt-dlp.exe
 timeout 1
 goto url
 
@@ -79,7 +79,7 @@ echo. Starting download on "%url%"
 echo.
 echo ================================================
 echo Log: 
-youtube-dl.exe --ffmpeg-location "%~dp0\ffmpeg\bin" -x --audio-format mp3 --audio-quality 0 %url%
+yt-dlp.exe --ffmpeg-location "%~dp0\ffmpeg\bin" -x --audio-format mp3 --audio-quality 0 %url%
 echo.
 echo ================================================
 echo.
